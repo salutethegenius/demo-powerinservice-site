@@ -6,13 +6,16 @@ export function SectionHeading({
   children,
   align = "left",
   invert = false,
+  level = 2,
 }: {
   eyebrow?: string;
   title: string;
   children?: React.ReactNode;
   align?: "left" | "center";
   invert?: boolean;
+  level?: 1 | 2;
 }) {
+  const Heading = level === 1 ? "h1" : "h2";
   return (
     <div className={clsx(align === "center" && "mx-auto max-w-3xl text-center")}>
       {eyebrow ? (
@@ -25,15 +28,16 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2
+      <Heading
         className={clsx(
           "mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl",
           invert ? "text-ivory" : "text-forest",
           align === "center" && "mx-auto",
+          level === 1 && "sm:text-5xl",
         )}
       >
         {title}
-      </h2>
+      </Heading>
       {children ? (
         <p
           className={clsx(

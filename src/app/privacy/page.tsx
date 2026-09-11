@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <section className="bg-ivory py-16 sm:py-20">
       <Container className="max-w-3xl">
-        <SectionHeading title="Privacy">
+        <SectionHeading level={1} title="Privacy">
           This is a website concept prepared for {businessSettings.businessName}{" "}
           review. It is not a live public launch.
         </SectionHeading>

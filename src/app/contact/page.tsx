@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <section className="bg-ivory py-16 sm:py-20">
       <Container className="max-w-3xl">
-        <SectionHeading eyebrow="Contact" title="Call, email, or request a site visit.">
+        <SectionHeading level={1} eyebrow="Contact" title="Call, email, or request a site visit.">
           There is no public street address on this website because one has not
           been supplied for publication.
         </SectionHeading>

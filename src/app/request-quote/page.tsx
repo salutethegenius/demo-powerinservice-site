@@ -13,6 +13,7 @@ export default function RequestQuotePage() {
       <Container className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <SectionHeading
+            level={1}
             eyebrow="Site visit"
             title="Request a walkthrough or free estimate."
           >
