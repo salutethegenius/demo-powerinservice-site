@@ -47,8 +47,7 @@ export function Header() {
     return () => document.removeEventListener("keydown", onKey);
   }, [servicesOpen]);
 
-  const servicesItem = primaryNav.find((item) => item.label === "Services");
-  const serviceLinks = servicesItem?.children ?? footerServiceLinks;
+  const serviceLinks = footerServiceLinks;
   const desktopItems = primaryNav.filter(
     (item) =>
       item.label !== "Services" &&
