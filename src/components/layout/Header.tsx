@@ -42,7 +42,7 @@ export function Header() {
       <Container className="flex h-[4.75rem] items-center justify-between gap-4">
         <Wordmark />
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 xl:flex">
           {desktopItems.map((item) => {
             const active =
               pathname === item.href ||
@@ -52,7 +52,7 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 className={clsx(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  "rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
                   active
                     ? "text-forest"
                     : "text-muted hover:text-forest",
@@ -64,7 +64,7 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href={businessSettings.phoneHref}
             className={clsx(
@@ -78,15 +78,10 @@ export function Header() {
           </a>
           <Link
             href="/request-quote"
-            className={clsx(buttonClassName("gold", "sm"), "hidden md:inline-flex")}
+            className={clsx(buttonClassName("gold", "sm"), "shrink-0 px-3 sm:px-4")}
           >
-            Request a Site Visit
-          </Link>
-          <Link
-            href="/request-quote"
-            className={clsx(buttonClassName("gold", "sm"), "px-3 md:hidden")}
-          >
-            Site Visit
+            <span className="sm:hidden">Site Visit</span>
+            <span className="hidden sm:inline">Request a Site Visit</span>
           </Link>
           <button
             type="button"

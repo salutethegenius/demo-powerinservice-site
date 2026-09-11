@@ -17,7 +17,7 @@ export function Wordmark({
     <span className={clsx("block leading-none", className)}>
       <span
         className={clsx(
-          "block text-[0.95rem] font-extrabold tracking-[0.18em] sm:text-[1.05rem]",
+          "block whitespace-nowrap text-[0.95rem] font-extrabold tracking-[0.16em] sm:text-[1.05rem]",
           inverted ? "text-ivory" : "text-forest",
         )}
       >
@@ -25,7 +25,7 @@ export function Wordmark({
       </span>
       <span
         className={clsx(
-          "mt-1 block text-[0.62rem] font-semibold tracking-[0.28em] sm:text-[0.68rem]",
+          "mt-1 block whitespace-nowrap text-[0.62rem] font-semibold tracking-[0.22em] sm:text-[0.68rem]",
           inverted ? "text-gold-soft" : "text-gold",
         )}
       >
@@ -41,7 +41,7 @@ export function Wordmark({
   return (
     <Link
       href={href}
-      className="inline-block rounded-sm"
+      className="inline-block shrink-0 rounded-sm"
       aria-label={`${businessSettings.businessName} home`}
     >
       {content}
