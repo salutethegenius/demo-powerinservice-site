@@ -76,7 +76,7 @@ export function Footer() {
           <p className="text-xs text-ivory/60">
             © {new Date().getFullYear()} {businessSettings.businessName}
           </p>
-          <DemoNotice compact />
+          <DemoNotice compact inverted />
         </Container>
       </div>
     </footer>

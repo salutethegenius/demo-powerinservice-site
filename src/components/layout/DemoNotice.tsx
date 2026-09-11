@@ -1,9 +1,18 @@
 import { businessSettings } from "@/content/business";
+import { clsx } from "@/lib/clsx";
 
-export function DemoNotice({ compact = false }: { compact?: boolean }) {
+export function DemoNotice({
+  compact = false,
+  inverted = false,
+}: {
+  compact?: boolean;
+  inverted?: boolean;
+}) {
+  const tone = inverted ? "text-ivory/70" : "text-muted";
+
   if (compact) {
     return (
-      <p className="text-[0.7rem] leading-5 text-muted">
+      <p className={clsx("text-[0.7rem] leading-5", tone)}>
         {businessSettings.demoNotice}
       </p>
     );

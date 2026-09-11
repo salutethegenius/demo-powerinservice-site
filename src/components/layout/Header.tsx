@@ -7,19 +7,22 @@ import { businessSettings } from "@/content/business";
 import { footerServiceLinks, primaryNav } from "@/content/navigation";
 import { buttonClassName } from "@/components/ui/button-styles";
 import { Container } from "@/components/ui/Container";
-import { CloseIcon, MenuIcon, PhoneIcon } from "@/components/ui/Icons";
+import { ChevronIcon, CloseIcon, MenuIcon, PhoneIcon } from "@/components/ui/Icons";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { clsx } from "@/lib/clsx";
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(pathname);
   const menuId = useId();
+  const servicesMenuId = useId();
 
   if (menuPath !== pathname) {
     setMenuPath(pathname);
     setOpen(false);
+    setServicesOpen(false);
   }
 
   useEffect(() => {
@@ -35,14 +38,79 @@ export function Header() {
     };
   }, [open]);
 
-  const desktopItems = primaryNav.filter((item) => item.label !== "Services");
+  useEffect(() => {
+    if (!servicesOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setServicesOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [servicesOpen]);
+
+  const servicesItem = primaryNav.find((item) => item.label === "Services");
+  const serviceLinks = servicesItem?.children ?? footerServiceLinks;
+  const desktopItems = primaryNav.filter(
+    (item) =>
+      item.label !== "Services" &&
+      item.label !== "Request a Quote" &&
+      !serviceLinks.some((service) => service.href === item.href),
+  );
+  const servicesActive = serviceLinks.some(
+    (item) => pathname === item.href || pathname.startsWith(`${item.href}/`),
+  );
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-ivory/95 backdrop-blur">
       <Container className="flex h-[4.75rem] items-center justify-between gap-4">
         <Wordmark />
 
-        <nav aria-label="Primary" className="hidden items-center gap-0.5 xl:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 xl:flex">
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              type="button"
+              className={clsx(
+                "inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors",
+                servicesActive ? "text-forest" : "text-muted hover:text-forest",
+              )}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              aria-controls={servicesMenuId}
+              onClick={() => setServicesOpen((value) => !value)}
+            >
+              Services
+              <ChevronIcon className="h-3.5 w-3.5" />
+            </button>
+            {servicesOpen ? (
+              <div
+                id={servicesMenuId}
+                className="absolute left-0 top-full z-50 min-w-[17rem] pt-2"
+              >
+                <div className="rounded-lg border border-line bg-ivory py-2 shadow-lg">
+                  {serviceLinks.map((item) => {
+                    const active = pathname === item.href;
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={clsx(
+                          "block whitespace-nowrap px-4 py-2.5 text-sm font-medium",
+                          active
+                            ? "bg-forest/5 text-forest"
+                            : "text-charcoal hover:bg-forest/5 hover:text-forest",
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
+          </div>
           {desktopItems.map((item) => {
             const active =
               pathname === item.href ||
@@ -52,7 +120,7 @@ export function Header() {
                 key={item.label}
                 href={item.href}
                 className={clsx(
-                  "rounded-md px-2.5 py-2 text-sm font-medium transition-colors",
+                  "rounded-md px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors",
                   active
                     ? "text-forest"
                     : "text-muted hover:text-forest",
