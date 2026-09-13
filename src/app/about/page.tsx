@@ -11,12 +11,20 @@ import { CheckIcon } from "@/components/ui/Icons";
 export const metadata = createMetadata(pageSeo.about);
 
 const confirmed = [
+  "Patrick Moncur, President",
   `Serving Central Florida since ${businessSettings.servingSince}`,
   "Commercial and residential service",
   businessSettings.insuranceStatement,
+  "Apartment and Airbnb punch-outs",
   "Cleaning, floor care, turnovers, and light maintenance",
+  "IICRC certified",
   `${businessSettings.areaServed} service area`,
 ];
+
+const ownerStoryParagraphs = businessSettings.ownerStory
+  .split(/\n\n+/)
+  .map((paragraph) => paragraph.trim())
+  .filter(Boolean);
 
 export default function AboutPage() {
   return (
@@ -28,8 +36,8 @@ export default function AboutPage() {
       >
         <p className="mt-5 max-w-2xl text-base leading-7 text-ivory/85 sm:text-lg">
           {businessSettings.positioning} Power In Service Inc. helps property
-          managers, facility managers, apartment communities, businesses, and
-          residential clients keep spaces ready.
+          managers, facility managers, apartment communities, Airbnb hosts,
+          businesses, and residential clients keep spaces ready.
         </p>
       </PageHero>
 
@@ -48,10 +56,17 @@ export default function AboutPage() {
           </div>
           <div className="rounded-lg border border-line bg-ivory p-8">
             <h2 className="text-xl font-semibold text-forest">Owner’s story</h2>
-            {businessSettings.ownerStory ? (
-              <p className="mt-4 text-sm leading-7 text-muted">
-                {businessSettings.ownerStory}
+            {businessSettings.slogan ? (
+              <p className="mt-4 text-base font-semibold leading-7 text-forest">
+                “{businessSettings.slogan}”
               </p>
+            ) : null}
+            {ownerStoryParagraphs.length ? (
+              ownerStoryParagraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)} className="mt-4 text-sm leading-7 text-muted">
+                  {paragraph}
+                </p>
+              ))
             ) : (
               <p className="mt-4 text-sm leading-7 text-muted">
                 A longer owner biography can be added here from the central

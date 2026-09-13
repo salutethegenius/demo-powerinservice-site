@@ -23,6 +23,13 @@ export const propertyTypes: PropertyType[] = [
     imageId: "apartment-community",
   },
   {
+    id: "airbnb",
+    name: "Airbnb and short-term rentals",
+    summary:
+      "Guest-ready punch-outs and turnovers between stays for short-term rental properties.",
+    imageId: "apartment-living",
+  },
+  {
     id: "commercial-common-area",
     name: "Commercial common areas",
     summary:

@@ -38,7 +38,7 @@ export function professionalServiceJsonLd() {
       { "@type": "AdministrativeArea", name: "Central Florida" },
     ],
     description:
-      "Commercial cleaning, floor care, property turnovers, and light maintenance throughout Orlando and Central Florida.",
+      "Commercial cleaning, floor care, apartment and Airbnb punch-outs, and light maintenance throughout Orlando and Central Florida.",
     foundingDate: String(businessSettings.servingSince),
     priceRange: undefined,
     hasOfferCatalog: {
@@ -47,6 +47,8 @@ export function professionalServiceJsonLd() {
       itemListElement: [
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial cleaning" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Floor and surface care" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Apartment punch-outs" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Airbnb punch-outs" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Property turnovers" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Light property maintenance" } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Residential cleaning" } },
