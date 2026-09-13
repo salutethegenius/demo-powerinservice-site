@@ -59,7 +59,7 @@ export default function AboutPage() {
             <StockPhoto
               image={getImage("patrick-moncur")}
               className="h-[22rem] w-full sm:h-[26rem]"
-              imgClassName="object-cover object-[center_18%]"
+              imgClassName="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
             <div className="p-8">
