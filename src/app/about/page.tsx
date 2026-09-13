@@ -7,6 +7,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CheckIcon } from "@/components/ui/Icons";
+import { StockPhoto } from "@/components/ui/StockPhoto";
 
 export const metadata = createMetadata(pageSeo.about);
 
@@ -43,7 +44,7 @@ export default function AboutPage() {
 
       <section className="bg-white py-20">
         <Container className="grid gap-12 lg:grid-cols-2">
-          <div>
+          <div className="order-2 lg:order-1">
             <SectionHeading title="What we can confirm today." />
             <ul className="mt-8 space-y-4">
               {confirmed.map((item) => (
@@ -54,28 +55,41 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-          <div className="rounded-lg border border-line bg-ivory p-8">
-            <h2 className="text-xl font-semibold text-forest">Owner’s story</h2>
-            {businessSettings.slogan ? (
-              <p className="mt-4 text-base font-semibold leading-7 text-forest">
-                “{businessSettings.slogan}”
+          <div className="order-1 overflow-hidden rounded-lg border border-line bg-ivory lg:order-2">
+            <StockPhoto
+              image={getImage("patrick-moncur")}
+              className="h-[22rem] w-full sm:h-[26rem]"
+              imgClassName="object-cover object-top"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+            <div className="p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                President
               </p>
-            ) : null}
-            {ownerStoryParagraphs.length ? (
-              ownerStoryParagraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 48)} className="mt-4 text-sm leading-7 text-muted">
-                  {paragraph}
+              <h2 className="mt-2 text-xl font-semibold text-forest">
+                Patrick Moncur
+              </h2>
+              {businessSettings.slogan ? (
+                <p className="mt-4 text-base font-semibold leading-7 text-forest">
+                  “{businessSettings.slogan}”
                 </p>
-              ))
-            ) : (
-              <p className="mt-4 text-sm leading-7 text-muted">
-                A longer owner biography can be added here from the central
-                content file when the owner provides it. This page does not invent
-                team size, family-owned status, awards, certifications,
-                minority-owned or veteran-owned claims, client counts, project
-                counts, or satisfaction guarantees.
-              </p>
-            )}
+              ) : null}
+              {ownerStoryParagraphs.length ? (
+                ownerStoryParagraphs.map((paragraph) => (
+                  <p key={paragraph.slice(0, 48)} className="mt-4 text-sm leading-7 text-muted">
+                    {paragraph}
+                  </p>
+                ))
+              ) : (
+                <p className="mt-4 text-sm leading-7 text-muted">
+                  A longer owner biography can be added here from the central
+                  content file when the owner provides it. This page does not invent
+                  team size, family-owned status, awards, certifications,
+                  minority-owned or veteran-owned claims, client counts, project
+                  counts, or satisfaction guarantees.
+                </p>
+              )}
+            </div>
           </div>
         </Container>
       </section>

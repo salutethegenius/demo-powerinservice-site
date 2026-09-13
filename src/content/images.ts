@@ -416,6 +416,20 @@ export const images: SiteImage[] = [
     platform: "Pexels",
     intendedSection: "Residential and turnover presentation",
   },
+  {
+    id: "patrick-moncur",
+    src: "/images/company/patrick-moncur.jpg",
+    width: 1431,
+    height: 1600,
+    alt: "Patrick Moncur, President of Power In Service Inc.",
+    sourceType: "company",
+    ownershipVerified: true,
+    publicationApproved: true,
+    sourceUrl: "",
+    photographer: "Power In Service Inc.",
+    platform: "Company",
+    intendedSection: "About page owner portrait",
+  },
 ];
 
 export const imageById = Object.fromEntries(
