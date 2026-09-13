@@ -58,8 +58,8 @@ export default function AboutPage() {
           <div className="order-1 overflow-hidden rounded-lg border border-line bg-ivory lg:order-2">
             <StockPhoto
               image={getImage("patrick-moncur")}
-              className="aspect-[1431/1600] h-auto w-full"
-              imgClassName="object-cover object-top"
+              className="h-[22rem] w-full sm:h-[26rem]"
+              imgClassName="object-cover object-[center_18%]"
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
             <div className="p-8">
