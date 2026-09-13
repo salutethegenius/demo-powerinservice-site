@@ -73,7 +73,7 @@ export interface SiteImage {
   publicationApproved: boolean;
   sourceUrl: string;
   photographer: string;
-  platform: "Pexels" | "Unsplash";
+  platform: "Pexels" | "Unsplash" | "Company";
   projectId?: string;
   intendedSection: string;
 }
