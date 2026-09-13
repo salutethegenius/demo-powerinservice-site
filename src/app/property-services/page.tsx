@@ -14,6 +14,7 @@ export default function PropertyServicesPage() {
         "Property managers",
         "Landlords",
         "Apartment communities",
+        "Airbnb hosts and short-term rental owners",
         "Real estate professionals",
         "Owners preparing a property for occupancy",
       ]}
@@ -23,7 +24,7 @@ export default function PropertyServicesPage() {
       planningItems={[
         "Unit or home condition",
         "Whether painting or sheetrock work is needed",
-        "Move-in or move-out timing",
+        "Move-in, move-out, or guest-turnover timing",
         "Access and occupancy constraints",
       ]}
     />

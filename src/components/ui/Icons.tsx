@@ -1,3 +1,5 @@
+import { clsx } from "@/lib/clsx";
+
 export function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
@@ -43,9 +45,14 @@ export function ArrowIcon({ className = "h-4 w-4" }: { className?: string }) {
   );
 }
 
-export function CheckIcon({ className = "h-4 w-4" }: { className?: string }) {
+export function CheckIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={clsx("h-4 w-4 shrink-0", className)}
+    >
       <path d="m5 12 5 5 9-10" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   );

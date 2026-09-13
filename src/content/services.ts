@@ -100,15 +100,21 @@ export const serviceCategories: ServiceCategory[] = [
     href: "/property-services",
     headline: "Cleaning, turnovers, and light property work from one team.",
     supporting:
-      "Apartment punch-outs, move-in and move-out preparation, painting, sheetrock work, home repairs, and general handyman services.",
+      "Apartment punch-outs, Airbnb punch-outs, move-in and move-out preparation, painting, sheetrock work, home repairs, and general handyman services.",
     prominence: "primary",
     imageId: "interior-painting",
     services: [
       {
         id: "punch-outs",
-        name: "Apartment unit punch-outs",
+        name: "Apartment punch-outs",
         summary:
-          "Prepare units between residents with cleaning and light property work as needed.",
+          "Prepare apartment units between residents with cleaning and light property work as needed.",
+      },
+      {
+        id: "airbnb-punch-outs",
+        name: "Airbnb punch-outs",
+        summary:
+          "Turn over short-term rental units between guests so the space is ready for the next stay.",
       },
       {
         id: "move-in",

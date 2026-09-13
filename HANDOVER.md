@@ -21,10 +21,14 @@ Kemis Digital Website Clinic concept. This is not an official public launch.
 - Area: Orlando and Central Florida
 - Serving since: 2005
 - Insurance: Insured up to $1 million in liability coverage
-- Phone: 954-540-4410
-- Public email: powerinservice@gmail.com
-- Secondary email stored, not displayed: patmoncur@gmail.com
+- Phone: 689-347-4320
+- Public email: hello@powerandservice.com
+- Secondary email stored, not displayed: powerandservice@gmail.com (forwarding target)
+- Slogan: Forget the Rest, Come to the Best
+- Owner: Patrick Moncur, President
+- Certification claimed from owner notes: IICRC
 - No street address published
+- Former public number 954-540-4410 is not displayed anywhere on the site
 
 Former names were not used: Power In Services 111 Inc., Power In Cleaning, Power In Services 11 Inc., Power In Service All Inclusive Inc.
 
@@ -34,7 +38,7 @@ Former names were not used: Power In Services 111 Inc., Power In Cleaning, Power
 
 **Floor and surface care:** carpet cleaning, tile and grout cleaning, floor cleaning, floor restoration, water extraction.
 
-**Turnovers and light maintenance:** apartment punch-outs, move-in/move-out preparation, painting, sheetrock work, home repairs, general handyman services.
+**Turnovers and light maintenance:** apartment punch-outs, Airbnb punch-outs, move-in/move-out preparation, painting, sheetrock work, home repairs, general handyman services.
 
 **Residential:** residential cleaning, carpet, tile and grout, water extraction, painting, sheetrock, handyman assistance, home repairs.
 
@@ -47,7 +51,6 @@ See `ASSET_SOURCES.md`. All current photographs are licensed stock from Pexels o
 ## Information still needed
 
 - Official logo file
-- Owner biography / story (`businessSettings.ownerStory`)
 - Public website URL / domain
 - Confirmed Angi public URL after redirects
 - Whether emergency services should be featured, and what they include
@@ -57,7 +60,7 @@ See `ASSET_SOURCES.md`. All current photographs are licensed stock from Pexels o
 - Public YouTube URLs, titles, posters, and caption status for any videos
 - Confirmation that supplied flyer/screenshot images are owned by the company
 - Form delivery provider (email, CRM, or form backend) for live launch
-- Any certifications the owner wants claimed
+- Any additional certifications beyond the owner-provided IICRC credential
 
 ## Supplied images that need ownership confirmation
 

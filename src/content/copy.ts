@@ -25,6 +25,12 @@ export const faqs: FaqItem[] = [
     answer: businessSettings.insuranceStatement + ".",
   },
   {
+    id: "punch-outs",
+    question: "Do you handle apartment and Airbnb punch-outs?",
+    answer:
+      "Yes. Power In Service prepares apartment units between residents and turns over Airbnb and other short-term rental units between guests. Cleaning and light property work are discussed after we see the space.",
+  },
+  {
     id: "licensed-trades",
     question: "Does the company handle electrical, plumbing, or roofing?",
     answer:
@@ -36,7 +42,7 @@ export const pageSeo: Record<string, PageSeo> = {
   home: {
     title: "Commercial Cleaning Orlando | Power In Service Inc.",
     description:
-      "Power In Service Inc. provides commercial cleaning, floor care, property turnovers, and light maintenance throughout Orlando and Central Florida.",
+      "Power In Service Inc. provides commercial cleaning, floor care, apartment and Airbnb punch-outs, and light maintenance throughout Orlando and Central Florida.",
     path: "/",
   },
   commercial: {
@@ -54,7 +60,7 @@ export const pageSeo: Record<string, PageSeo> = {
   property: {
     title: "Property Turnovers and Light Maintenance",
     description:
-      "Apartment punch-outs, move-in and move-out preparation, painting, sheetrock work, and handyman services for Central Florida properties.",
+      "Apartment punch-outs, Airbnb punch-outs, move-in and move-out preparation, painting, sheetrock work, and handyman services for Central Florida properties.",
     path: "/property-services",
   },
   residential: {
@@ -72,7 +78,7 @@ export const pageSeo: Record<string, PageSeo> = {
   about: {
     title: "About Power In Service Inc.",
     description:
-      "Power In Service Inc. has served Central Florida since 2005 with commercial cleaning, floor care, turnovers, and light maintenance.",
+      "Patrick Moncur leads Power In Service Inc., serving Central Florida since 2005 with commercial cleaning, floor care, apartment and Airbnb punch-outs, and light maintenance.",
     path: "/about",
   },
   quote: {
@@ -83,8 +89,7 @@ export const pageSeo: Record<string, PageSeo> = {
   },
   contact: {
     title: "Contact",
-    description:
-      "Call 954-540-4410 or email powerinservice@gmail.com to discuss commercial cleaning and property services in Orlando and Central Florida.",
+    description: `Call ${businessSettings.phoneDisplay} or email ${businessSettings.primaryEmail} to discuss commercial cleaning and property services in Orlando and Central Florida.`,
     path: "/contact",
   },
   privacy: {

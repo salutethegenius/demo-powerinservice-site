@@ -12,6 +12,7 @@ export type PropertyTypeId =
   | "office"
   | "retail"
   | "apartment-community"
+  | "airbnb"
   | "commercial-common-area"
   | "restaurant-entertainment"
   | "residential"
@@ -24,6 +25,7 @@ export type QuoteServiceId =
   | "floor-care"
   | "water-extraction"
   | "apartment-turnover"
+  | "airbnb-punch-out"
   | "painting"
   | "sheetrock-work"
   | "handyman-services"
@@ -51,6 +53,7 @@ export interface BusinessSettings {
   demoMode: boolean;
   websiteUrl: string;
   ownerStory: string;
+  slogan: string;
   positioning: string;
   demoNotice: string;
   stockDisclosure: string;

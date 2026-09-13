@@ -2,10 +2,10 @@ import type { BusinessSettings } from "./types";
 
 export const businessSettings: BusinessSettings = {
   businessName: "Power In Service Inc.",
-  phoneDisplay: "954-540-4410",
-  phoneHref: "tel:+19545404410",
-  primaryEmail: "powerinservice@gmail.com",
-  secondaryEmail: "patmoncur@gmail.com",
+  phoneDisplay: "689-347-4320",
+  phoneHref: "tel:+16893474320",
+  primaryEmail: "hello@powerandservice.com",
+  secondaryEmail: "powerandservice@gmail.com",
   displaySecondaryEmail: false,
   areaServed: "Orlando and Central Florida",
   servingSince: 2005,
@@ -24,7 +24,9 @@ export const businessSettings: BusinessSettings = {
     "Do not display the former 20% off first $400 flyer promotion unless the owner confirms it remains active.",
   demoMode: true,
   websiteUrl: "",
-  ownerStory: "",
+  slogan: "Forget the Rest, Come to the Best",
+  ownerStory:
+    "My name is Patrick Moncur, President of Power In Service Inc. My journey started in the Bahamas at the Princess Hotels & Resorts, where I did tile strip and wax and exterminating. I then moved to the United States, where I worked for Sean’s Carpet Cleaning and Tile & Grout Cleaning. I also worked for Dark Maintenance. Finally, I worked for Dry Concept, doing carpet dry cleaning. I was certified by the Institute of Inspection, Cleaning and Restoration Certification (IICRC).\n\nIn my company, we give you the best of service. What makes us special is the care, time, and personal effort we put into it — with joy and a smile on our faces.",
   positioning:
     "Commercial cleaning and property services from one dependable team.",
   demoNotice:
@@ -94,6 +96,7 @@ export const quotePropertyTypes = [
   { id: "office", label: "Office" },
   { id: "retail", label: "Retail" },
   { id: "apartment-community", label: "Apartment community" },
+  { id: "airbnb", label: "Airbnb or short-term rental" },
   { id: "commercial-common-area", label: "Commercial common area" },
   { id: "restaurant-entertainment", label: "Restaurant or entertainment space" },
   { id: "residential", label: "Residential property" },
@@ -106,7 +109,8 @@ export const quoteServiceOptions = [
   { id: "tile-grout-cleaning", label: "Tile and grout cleaning" },
   { id: "floor-care", label: "Floor care" },
   { id: "water-extraction", label: "Water extraction" },
-  { id: "apartment-turnover", label: "Apartment turnover" },
+  { id: "apartment-turnover", label: "Apartment punch-out" },
+  { id: "airbnb-punch-out", label: "Airbnb punch-out" },
   { id: "painting", label: "Painting" },
   { id: "sheetrock-work", label: "Sheetrock work" },
   { id: "handyman-services", label: "Handyman services" },
