@@ -26,6 +26,7 @@ Kemis Digital Website Clinic concept. This is not an official public launch.
 - Secondary email stored, not displayed: powerandservice@gmail.com (forwarding target)
 - Slogan: Forget the Rest, Come to the Best
 - Owner: Patrick Moncur, President
+- Owner portrait published on About (`public/images/company/patrick-moncur.jpg`)
 - Certification claimed from owner notes: IICRC
 - No street address published
 - Former public number 954-540-4410 is not displayed anywhere on the site
@@ -61,6 +62,16 @@ See `ASSET_SOURCES.md`. All current photographs are licensed stock from Pexels o
 - Confirmation that supplied flyer/screenshot images are owned by the company
 - Form delivery provider (email, CRM, or form backend) for live launch
 - Any additional certifications beyond the owner-provided IICRC credential
+
+## Owner portrait
+
+Patrick Moncur’s portrait is published on `/about` as a company image:
+
+- File: `public/images/company/patrick-moncur.jpg`
+- Record: `patrick-moncur` in `src/content/images.ts`
+- `sourceType: "company"`, `ownershipVerified: true`, `publicationApproved: true`
+
+This is an owner-supplied portrait for the About page, not a project photograph.
 
 ## Supplied images that need ownership confirmation
 
