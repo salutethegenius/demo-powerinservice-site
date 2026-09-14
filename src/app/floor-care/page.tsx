@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StockPhoto } from "@/components/ui/StockPhoto";
 import { getImage } from "@/content/images";
 import { CtaBand } from "@/components/ui/CtaBand";
+import { businessSettings } from "@/content/business";
 
 export const metadata = createMetadata(pageSeo.floorCare);
 
@@ -29,11 +30,10 @@ export default function FloorCarePage() {
       />
       <section className="bg-ivory py-16">
         <Container>
-          <SectionHeading
-            title="Before-and-after support is ready when real project photos are approved."
-          >
-            The layout can hold genuine before-and-after pairs later. This concept
-            does not invent comparison photographs.
+          <SectionHeading title="Floor photographs from the kinds of spaces we service.">
+            Before-and-after photographs from completed jobs will appear here
+            when they are ready to publish. The images below are representative
+            floor photographs, not comparison pairs.
           </SectionHeading>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <StockPhoto
@@ -49,6 +49,9 @@ export default function FloorCarePage() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
+          <p className="mt-6 text-base leading-7 text-muted">
+            {businessSettings.stockDisclosure}
+          </p>
         </Container>
       </section>
       <CtaBand title="Ask about the floors on your property." />

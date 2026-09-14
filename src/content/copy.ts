@@ -72,7 +72,7 @@ export const pageSeo: Record<string, PageSeo> = {
   ourWork: {
     title: "Our Work",
     description:
-      "See how Power In Service presents completed property work. Genuine project photographs will be added after owner approval.",
+      "See the kinds of commercial and residential spaces Power In Service services in Orlando and Central Florida. Licensed representative photographs are shown until completed-project photos are published.",
     path: "/our-work",
   },
   about: {
@@ -95,7 +95,7 @@ export const pageSeo: Record<string, PageSeo> = {
   privacy: {
     title: "Privacy",
     description:
-      "Privacy information for the Power In Service Inc. website concept.",
+      "How Power In Service Inc. collects and uses contact details submitted through the website quote form.",
     path: "/privacy",
   },
 };

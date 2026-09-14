@@ -23,7 +23,7 @@ export function DecisionMaker() {
           </SectionHeading>
           <ul className="mt-8 space-y-3">
             {managerChecklist.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-6 text-charcoal">
+              <li key={item} className="flex gap-3 text-base leading-7 text-charcoal">
                 <span className="mt-1 text-gold">
                   <CheckIcon />
                 </span>

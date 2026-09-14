@@ -14,8 +14,8 @@ export default function ContactPage() {
     <section className="bg-ivory py-16 sm:py-20">
       <Container className="max-w-3xl">
         <SectionHeading level={1} eyebrow="Contact" title="Call, email, or request a site visit.">
-          There is no public street address on this website because one has not
-          been supplied for publication.
+          We serve {businessSettings.areaServed}. A public street address is not
+          listed on this website.
         </SectionHeading>
         <div className="mt-10 grid gap-4">
           <a
@@ -23,7 +23,7 @@ export default function ContactPage() {
             className="rounded-lg border border-line bg-white p-6 text-lg font-semibold text-forest"
           >
             {businessSettings.phoneDisplay}
-            <span className="mt-1 block text-sm font-normal text-muted">
+            <span className="mt-1 block text-base font-normal leading-7 text-muted">
               Primary telephone
             </span>
           </a>
@@ -32,13 +32,13 @@ export default function ContactPage() {
             className="rounded-lg border border-line bg-white p-6 text-lg font-semibold text-forest"
           >
             {businessSettings.primaryEmail}
-            <span className="mt-1 block text-sm font-normal text-muted">
+            <span className="mt-1 block text-base font-normal leading-7 text-muted">
               Primary email
             </span>
           </a>
           <p className="rounded-lg border border-line bg-white p-6 text-lg font-semibold text-forest">
             {businessSettings.areaServed}
-            <span className="mt-1 block text-sm font-normal text-muted">
+            <span className="mt-1 block text-base font-normal leading-7 text-muted">
               Service area
             </span>
           </p>

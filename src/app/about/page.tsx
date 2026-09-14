@@ -45,10 +45,10 @@ export default function AboutPage() {
       <section className="bg-white py-20">
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
-            <SectionHeading title="What we can confirm today." />
+            <SectionHeading title="Who we are." />
             <ul className="mt-8 space-y-4">
               {confirmed.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-charcoal">
+                <li key={item} className="flex gap-3 text-base leading-7 text-charcoal">
                   <CheckIcon className="mt-0.5 text-gold" />
                   {item}
                 </li>
@@ -76,17 +76,14 @@ export default function AboutPage() {
               ) : null}
               {ownerStoryParagraphs.length ? (
                 ownerStoryParagraphs.map((paragraph) => (
-                  <p key={paragraph.slice(0, 48)} className="mt-4 text-sm leading-7 text-muted">
+                  <p key={paragraph.slice(0, 48)} className="mt-4 text-base leading-7 text-muted">
                     {paragraph}
                   </p>
                 ))
               ) : (
-                <p className="mt-4 text-sm leading-7 text-muted">
-                  A longer owner biography can be added here from the central
-                  content file when the owner provides it. This page does not invent
-                  team size, family-owned status, awards, certifications,
-                  minority-owned or veteran-owned claims, client counts, project
-                  counts, or satisfaction guarantees.
+                <p className="mt-4 text-base leading-7 text-muted">
+                  Patrick Moncur leads Power In Service Inc. in Orlando and
+                  Central Florida.
                 </p>
               )}
             </div>

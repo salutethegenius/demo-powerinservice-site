@@ -1,5 +1,6 @@
 import { businessSettings } from "@/content/business";
 import type { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   if (businessSettings.demoMode) {
@@ -15,9 +16,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: "/api/",
     },
-    sitemap: businessSettings.websiteUrl
-      ? `${businessSettings.websiteUrl}/sitemap.xml`
-      : undefined,
+    sitemap: absoluteUrl("/sitemap.xml"),
+    host: businessSettings.websiteUrl.replace(/\/$/, ""),
   };
 }

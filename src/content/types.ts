@@ -55,7 +55,6 @@ export interface BusinessSettings {
   ownerStory: string;
   slogan: string;
   positioning: string;
-  demoNotice: string;
   stockDisclosure: string;
   wordmarkPrimary: string;
   wordmarkSecondary: string;

@@ -30,7 +30,7 @@ export function PropertyTypes() {
                 />
                 <div className="p-5">
                   <h3 className="text-lg font-semibold text-forest">{type.name}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">{type.summary}</p>
+                  <p className="mt-2 text-base leading-7 text-muted">{type.summary}</p>
                 </div>
               </article>
             );

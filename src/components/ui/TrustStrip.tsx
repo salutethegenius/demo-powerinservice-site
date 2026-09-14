@@ -8,7 +8,7 @@ export function TrustStrip() {
         {trustItems.map((item) => (
           <div key={item.id} className="border-l-2 border-gold pl-4">
             <p className="font-semibold text-forest">{item.label}</p>
-            <p className="mt-1 text-sm leading-6 text-muted">{item.detail}</p>
+            <p className="mt-1 text-base leading-7 text-muted">{item.detail}</p>
           </div>
         ))}
       </Container>

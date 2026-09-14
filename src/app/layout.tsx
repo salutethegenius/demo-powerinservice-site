@@ -20,15 +20,20 @@ export const metadata: Metadata = {
     template: `%s | ${businessSettings.businessName}`,
   },
   applicationName: businessSettings.businessName,
-  metadataBase: businessSettings.websiteUrl
-    ? new URL(businessSettings.websiteUrl)
+  metadataBase: new URL(businessSettings.websiteUrl),
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en" className={`${plusJakarta.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-ivory font-sans text-charcoal">
+      <body className="flex min-h-full flex-col bg-ivory font-sans text-base text-charcoal">
         <JsonLd />
         <SiteShell>{children}</SiteShell>
       </body>
