@@ -23,7 +23,7 @@ export function Process() {
                 0{step.step}
               </span>
               <h3 className="mt-4 text-xl font-semibold text-forest">{step.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{step.body}</p>
+              <p className="mt-3 text-base leading-7 text-muted">{step.body}</p>
             </li>
           ))}
         </ol>

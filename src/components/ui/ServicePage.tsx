@@ -47,12 +47,12 @@ export function ServicePage({
               {category.services.map((service) => (
                 <li key={service.id} className="py-5">
                   <h3 className="text-lg font-semibold text-forest">{service.name}</h3>
-                  <p className="mt-2 text-sm leading-6 text-muted">{service.summary}</p>
+                  <p className="mt-2 text-base leading-7 text-muted">{service.summary}</p>
                 </li>
               ))}
             </ul>
             {caveats?.length ? (
-              <ul className="mt-8 space-y-2 text-sm text-muted">
+              <ul className="mt-8 space-y-2 text-base leading-7 text-muted">
                 {caveats.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
@@ -86,7 +86,7 @@ export function ServicePage({
               {audience.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 rounded-lg border border-line bg-white p-5 text-sm font-medium text-forest"
+                  className="flex items-start gap-3 rounded-lg border border-line bg-white p-5 text-base font-medium text-forest"
                 >
                   <CheckIcon className="mt-0.5 text-gold" />
                   {item}
@@ -105,7 +105,7 @@ export function ServicePage({
             </SectionHeading>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {planningItems.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-charcoal">
+                <li key={item} className="flex gap-3 text-base leading-7 text-charcoal">
                   <CheckIcon className="mt-1 text-gold" />
                   {item}
                 </li>

@@ -23,25 +23,22 @@ export default function OurWorkPage() {
       <PageHero
         image={getImage("polished-conference-floor")}
         eyebrow="Our work"
-        title="Project photographs are being prepared."
+        title="Spaces kept ready for daily use."
       >
         <p className="mt-5 max-w-2xl text-base leading-7 text-ivory/85 sm:text-lg">
-          Genuine Power In Service project photographs will appear here after
-          ownership and publication are confirmed. Licensed representative
-          imagery is shown only as presentation until then.
+          Photographs of completed Power In Service projects will appear here
+          when they are ready to publish. Until then, the images below are
+          licensed representative photographs of the kinds of spaces we service.
         </p>
       </PageHero>
 
       <section className="bg-white py-20">
         <Container>
           {projects.length === 0 ? (
-            <SectionHeading title="Completed-project records are ready to receive approved work.">
-              Each project can include a title, service category, general
-              property type, general service area, challenge, work completed,
-              result, before images, after images, optional video, and a
-              publication approval status. Client names, addresses, logos, faces,
-              licence plates, and other identifying details stay hidden unless
-              approved.
+            <SectionHeading title="Completed project photographs are being prepared.">
+              Client names, addresses, logos, faces, licence plates, and other
+              identifying details stay hidden unless they have been approved for
+              publication.
             </SectionHeading>
           ) : (
             <div className="grid gap-8">
@@ -56,7 +53,7 @@ export default function OurWorkPage() {
                   <h2 className="mt-2 text-2xl font-semibold text-forest">
                     {project.title}
                   </h2>
-                  <p className="mt-2 text-sm text-muted">
+                  <p className="mt-2 text-base leading-7 text-muted">
                     {project.propertyType} · {project.serviceArea}
                   </p>
                   <dl className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -64,7 +61,7 @@ export default function OurWorkPage() {
                       <dt className="text-xs font-semibold uppercase tracking-wide text-gold">
                         Challenge
                       </dt>
-                      <dd className="mt-2 text-sm leading-6 text-muted">
+                      <dd className="mt-2 text-base leading-7 text-muted">
                         {project.challenge}
                       </dd>
                     </div>
@@ -72,7 +69,7 @@ export default function OurWorkPage() {
                       <dt className="text-xs font-semibold uppercase tracking-wide text-gold">
                         Work completed
                       </dt>
-                      <dd className="mt-2 text-sm leading-6 text-muted">
+                      <dd className="mt-2 text-base leading-7 text-muted">
                         {project.workCompleted}
                       </dd>
                     </div>
@@ -80,7 +77,7 @@ export default function OurWorkPage() {
                       <dt className="text-xs font-semibold uppercase tracking-wide text-gold">
                         Result
                       </dt>
-                      <dd className="mt-2 text-sm leading-6 text-muted">
+                      <dd className="mt-2 text-base leading-7 text-muted">
                         {project.result}
                       </dd>
                     </div>
@@ -90,7 +87,7 @@ export default function OurWorkPage() {
             </div>
           )}
 
-          <p className="mt-10 text-sm leading-6 text-muted">
+          <p className="mt-10 text-base leading-7 text-muted">
             {businessSettings.stockDisclosure}
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -111,7 +108,7 @@ export default function OurWorkPage() {
                 {videos.map((video) => (
                   <article key={video.id}>
                     <h3 className="font-semibold text-forest">{video.title}</h3>
-                    <p className="mt-2 text-sm text-muted">{video.description}</p>
+                    <p className="mt-2 text-base leading-7 text-muted">{video.description}</p>
                   </article>
                 ))}
               </div>

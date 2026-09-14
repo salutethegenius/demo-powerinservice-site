@@ -11,21 +11,38 @@ export default function PrivacyPage() {
     <section className="bg-ivory py-16 sm:py-20">
       <Container className="max-w-3xl">
         <SectionHeading level={1} title="Privacy">
-          This is a website concept prepared for {businessSettings.businessName}{" "}
-          review. It is not a live public launch.
+          How Power In Service Inc. handles information submitted through this
+          website.
         </SectionHeading>
-        <div className="mt-10 space-y-6 text-sm leading-7 text-muted">
+        <div className="mt-10 space-y-6 text-base leading-7 text-muted">
           <p>
-            The request form on this concept does not submit, store, or email
-            information. Do not enter financial, identity, medical, or insurance
-            details.
+            The request form on this website collects contact and property
+            details so we can follow up about a site visit or estimate. Typical
+            fields include name, company name, email, phone, property address,
+            city, ZIP code, property type, square footage, requested services,
+            timing preferences, and any notes you choose to share.
           </p>
           <p>
-            When a live website is approved, form delivery, analytics, and any
-            cookies will be documented here before collection begins.
+            Submitted information is emailed to {businessSettings.businessName}{" "}
+            at{" "}
+            <a
+              className="font-medium text-forest underline"
+              href={`mailto:${businessSettings.primaryEmail}`}
+            >
+              {businessSettings.primaryEmail}
+            </a>
+            . It is used only to contact you about the requested work. We do not
+            sell this information. Photo uploads are not collected on this
+            website.
           </p>
           <p>
-            Contact {businessSettings.businessName} at{" "}
+            This site does not use advertising or analytics cookies. Essential
+            hosting and form-delivery services process the request so it can
+            reach us.
+          </p>
+          <p>
+            To ask a question about information you submitted, or to request that
+            we delete a quote request, contact us at{" "}
             <a
               className="font-medium text-forest underline"
               href={`mailto:${businessSettings.primaryEmail}`}
@@ -36,7 +53,8 @@ export default function PrivacyPage() {
             <a className="font-medium text-forest underline" href={businessSettings.phoneHref}>
               {businessSettings.phoneDisplay}
             </a>
-            .
+            . Do not include financial, identity, medical, or insurance details
+            in a quote request.
           </p>
         </div>
       </Container>

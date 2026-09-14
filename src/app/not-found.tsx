@@ -10,9 +10,8 @@ export default function NotFound() {
           404
         </p>
         <h1 className="mt-3 text-4xl font-semibold text-forest">Page not found</h1>
-        <p className="mt-4 text-muted">
-          That page is not part of this website concept. Return home or request a
-          site visit.
+        <p className="mt-4 text-base leading-7 text-muted">
+          That page is not on this website. Return home or request a site visit.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link href="/" className={buttonClassName("forest", "md")}>

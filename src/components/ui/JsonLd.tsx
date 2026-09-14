@@ -1,11 +1,17 @@
-import { professionalServiceJsonLd } from "@/lib/seo";
+import { faqJsonLd, professionalServiceJsonLd } from "@/lib/seo";
 
 export function JsonLd() {
-  const data = professionalServiceJsonLd();
+  const documents = [professionalServiceJsonLd(), faqJsonLd()];
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      {documents.map((data) => (
+        <script
+          key={String(data["@type"])}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+      ))}
+    </>
   );
 }

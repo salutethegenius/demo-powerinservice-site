@@ -21,7 +21,7 @@ export default function RequestQuotePage() {
             your space, schedule, and service requirements. Commercial work is
             not priced instantly from this form.
           </SectionHeading>
-          <dl className="mt-10 space-y-4 text-sm">
+          <dl className="mt-10 space-y-4 text-base leading-7">
             <div>
               <dt className="font-semibold text-forest">Telephone</dt>
               <dd>

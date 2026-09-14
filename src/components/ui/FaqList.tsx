@@ -17,7 +17,7 @@ export function FaqList() {
                   <span className="hidden text-gold group-open:inline">−</span>
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-6 text-muted">{item.answer}</p>
+              <p className="mt-3 text-base leading-7 text-muted">{item.answer}</p>
             </details>
           ))}
         </div>

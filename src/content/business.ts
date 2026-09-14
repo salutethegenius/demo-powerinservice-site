@@ -15,24 +15,22 @@ export const businessSettings: BusinessSettings = {
     "https://www.angi.com/companylist/us/fl/azalea-park/power-in-services-inc-reviews-156521772.htm",
   angiUrlNote:
     "This Angi listing still appears under a former business name and may redirect. Confirm the public URL before launch.",
-  formMode: "demo",
+  formMode: "live",
   emergencyServicesEnabled: false,
   emergencyServicesNote:
     "Angi listings mention emergency services. Keep this off until the owner confirms what those services include.",
   promotionEnabled: false,
   promotionNote:
     "Do not display the former 20% off first $400 flyer promotion unless the owner confirms it remains active.",
-  demoMode: true,
-  websiteUrl: "",
+  demoMode: false,
+  websiteUrl: "https://powerandcleaning.com",
   slogan: "Forget the Rest, Come to the Best",
   ownerStory:
     "My name is Patrick Moncur, President of Power In Service Inc. My journey started in the Bahamas at the Princess Hotels & Resorts, where I did tile strip and wax and exterminating. I then moved to the United States, where I worked for Sean’s Carpet Cleaning and Tile & Grout Cleaning. I also worked for Dark Maintenance. Finally, I worked for Dry Concept, doing carpet dry cleaning. I was certified by the Institute of Inspection, Cleaning and Restoration Certification (IICRC).\n\nIn my company, we give you the best of service. What makes us special is the care, time, and personal effort we put into it — with joy and a smile on our faces.",
   positioning:
     "Commercial cleaning and property services from one dependable team.",
-  demoNotice:
-    "Independent website concept prepared for Power In Service Inc. review.",
   stockDisclosure:
-    "Representative service imagery. Genuine Power In Service project photographs will be added after owner approval.",
+    "Representative service imagery. These photographs illustrate the kinds of spaces we service; they are not photographs of completed Power In Service projects.",
   wordmarkPrimary: "POWER IN",
   wordmarkSecondary: "SERVICE INC.",
   wordmarkIsOfficialLogo: false,

@@ -85,7 +85,7 @@ export function HomeHero({ image }: { image: SiteImage }) {
               Explore Services
             </Link>
           </div>
-          <p className="mt-6 text-sm text-ivory/75">
+          <p className="mt-6 text-base text-ivory/75">
             Serving Central Florida since {businessSettings.servingSince}.
           </p>
         </div>

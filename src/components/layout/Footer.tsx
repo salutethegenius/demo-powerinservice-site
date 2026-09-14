@@ -3,7 +3,6 @@ import { businessSettings } from "@/content/business";
 import { footerNav, footerServiceLinks } from "@/content/navigation";
 import { Container } from "@/components/ui/Container";
 import { Wordmark } from "@/components/ui/Wordmark";
-import { DemoNotice } from "@/components/layout/DemoNotice";
 
 export function Footer() {
   return (
@@ -11,10 +10,10 @@ export function Footer() {
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="lg:col-span-1">
           <Wordmark inverted href="/" />
-          <p className="mt-4 max-w-xs text-sm leading-6 text-ivory/75">
+          <p className="mt-4 max-w-xs text-base leading-7 text-ivory/75">
             {businessSettings.positioning} Serving {businessSettings.areaServed}.
           </p>
-          <p className="mt-4 text-sm text-ivory/70">
+          <p className="mt-4 text-base leading-7 text-ivory/70">
             Serving Central Florida since {businessSettings.servingSince}.
           </p>
         </div>
@@ -23,7 +22,7 @@ export function Footer() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">
             Contact
           </p>
-          <ul className="mt-4 space-y-3 text-sm">
+          <ul className="mt-4 space-y-3 text-base leading-7">
             <li>
               <a className="hover:text-gold-soft" href={businessSettings.phoneHref}>
                 {businessSettings.phoneDisplay}
@@ -45,7 +44,7 @@ export function Footer() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">
             Services
           </p>
-          <ul className="mt-4 space-y-3 text-sm">
+          <ul className="mt-4 space-y-3 text-base leading-7">
             {footerServiceLinks.map((item) => (
               <li key={item.href}>
                 <Link className="hover:text-gold-soft" href={item.href}>
@@ -60,7 +59,7 @@ export function Footer() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-soft">
             Explore
           </p>
-          <ul className="mt-4 space-y-3 text-sm">
+          <ul className="mt-4 space-y-3 text-base leading-7">
             {footerNav.map((item) => (
               <li key={item.href}>
                 <Link className="hover:text-gold-soft" href={item.href}>
@@ -76,7 +75,6 @@ export function Footer() {
           <p className="text-xs text-ivory/60">
             © {new Date().getFullYear()} {businessSettings.businessName}
           </p>
-          <DemoNotice compact inverted />
         </Container>
       </div>
     </footer>

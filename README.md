@@ -1,8 +1,8 @@
 # Power In Service Inc.
 
-Website concept for Power In Service Inc., a commercial cleaning and property-services company serving Orlando and Central Florida.
+Public website for Power In Service Inc., a commercial cleaning and property-services company serving Orlando and Central Florida.
 
-This is an independent Kemis Digital Website Clinic concept. It is not a live official launch.
+Live site: [https://powerandcleaning.com](https://powerandcleaning.com)
 
 ## Local development
 
@@ -12,6 +12,8 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+Copy `.env.example` to `.env.local` and add Resend keys if you want the quote form to send email locally.
 
 ## Checks
 
@@ -25,9 +27,10 @@ npm run build
 
 Business details, services, reviews, images, videos, FAQs, and feature flags live in `src/content/`.
 
-External links such as the Angi profile are in `src/content/business.ts`.
+Public contact, Angi URL, and production flags are in `src/content/business.ts`.
 
 ## Documentation
 
-- `HANDOVER.md` — pages completed, outstanding information, and launch steps
+- `HANDOVER.md` — remaining owner tasks, photos, and launch checklist
 - `ASSET_SOURCES.md` — stock photograph credits
+- `.env.example` — Resend and Search Console environment variables

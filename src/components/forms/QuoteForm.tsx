@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
 import {
   businessSettings,
   quotePropertyTypes,
@@ -10,26 +10,10 @@ import {
 } from "@/content/business";
 import { buttonClassName } from "@/components/ui/button-styles";
 import { PhoneIcon } from "@/components/ui/Icons";
+import { submitQuote } from "@/app/request-quote/actions";
+import { validateQuote, type QuoteInput } from "@/lib/quote";
 
-type FormState = {
-  fullName: string;
-  companyName: string;
-  email: string;
-  phone: string;
-  propertyAddress: string;
-  city: string;
-  zip: string;
-  propertyType: string;
-  squareFootage: string;
-  services: string[];
-  serviceTiming: string;
-  frequency: string;
-  walkthroughDate: string;
-  timeWindow: string;
-  startDate: string;
-  details: string;
-  consent: boolean;
-};
+type FormState = Omit<QuoteInput, "website">;
 
 const empty: FormState = {
   fullName: "",
@@ -66,13 +50,13 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={htmlFor} className="block text-sm font-semibold text-forest">
+      <label htmlFor={htmlFor} className="block text-base font-semibold text-forest">
         {label}
       </label>
-      {hint ? <p className="mt-1 text-xs text-muted">{hint}</p> : null}
+      {hint ? <p className="mt-1 text-base leading-7 text-muted">{hint}</p> : null}
       <div className="mt-2">{children}</div>
       {error ? (
-        <p className="mt-1 text-sm text-red-800" role="alert">
+        <p className="mt-1 text-base leading-7 text-red-800" role="alert">
           {error}
         </p>
       ) : null}
@@ -81,30 +65,22 @@ function Field({
 }
 
 const inputClass =
-  "min-h-12 w-full rounded-md border border-line bg-white px-3 text-charcoal outline-none transition-colors focus:border-gold";
+  "min-h-12 w-full rounded-md border border-line bg-white px-3 text-base text-charcoal outline-none transition-colors focus:border-gold";
 
 export function QuoteForm() {
   const [form, setForm] = useState<FormState>(empty);
+  const [honeypot, setHoneypot] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [attempted, setAttempted] = useState(false);
-  const demo = businessSettings.formMode === "demo";
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [serverError, setServerError] = useState("");
+  const [pending, startTransition] = useTransition();
+  const live = businessSettings.formMode === "live";
 
-  const valid = useMemo(() => {
-    const next: Record<string, string> = {};
-    if (!form.fullName.trim()) next.fullName = "Enter your full name.";
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      next.email = "Enter a valid email address.";
-    }
-    if (!form.phone.trim() || form.phone.replace(/\D/g, "").length < 10) {
-      next.phone = "Enter a phone number we can use to reach you.";
-    }
-    if (!form.city.trim()) next.city = "Enter the city.";
-    if (!form.propertyType) next.propertyType = "Select a property type.";
-    if (form.services.length === 0) next.services = "Select at least one service.";
-    if (!form.serviceTiming) next.serviceTiming = "Tell us if this is one-time or recurring.";
-    if (!form.consent) next.consent = "Consent is required before we can use these details.";
-    return next;
-  }, [form]);
+  const valid = useMemo(
+    () => validateQuote({ ...form, website: honeypot }),
+    [form, honeypot],
+  );
 
   function toggleService(id: string) {
     setForm((current) => ({
@@ -119,18 +95,61 @@ export function QuoteForm() {
     event.preventDefault();
     setErrors(valid);
     setAttempted(true);
+    setStatus("idle");
+    setServerError("");
+    if (Object.keys(valid).length > 0 || !live) return;
+
+    startTransition(async () => {
+      const result = await submitQuote({ ...form, website: honeypot });
+      if (result.ok) {
+        setStatus("success");
+        setForm(empty);
+        setHoneypot("");
+        setAttempted(false);
+        setErrors({});
+        return;
+      }
+      setStatus("error");
+      setServerError(result.error);
+      if (result.fieldErrors) setErrors(result.fieldErrors);
+    });
+  }
+
+  if (status === "success") {
+    return (
+      <div
+        className="rounded-lg border border-forest/20 bg-white p-5 shadow-sm sm:p-8"
+        role="status"
+      >
+        <h2 className="text-2xl font-semibold text-forest">We received your request.</h2>
+        <p className="mt-4 text-base leading-7 text-charcoal">
+          Thank you. Power In Service Inc. will review the details and follow up
+          about a site visit or estimate. If you need to reach us sooner, call{" "}
+          <a className="font-semibold text-forest underline" href={businessSettings.phoneHref}>
+            {businessSettings.phoneDisplay}
+          </a>{" "}
+          or email{" "}
+          <a
+            className="font-semibold text-forest underline"
+            href={`mailto:${businessSettings.primaryEmail}`}
+          >
+            {businessSettings.primaryEmail}
+          </a>
+          .
+        </p>
+      </div>
+    );
   }
 
   return (
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-lg border border-line bg-white p-5 shadow-sm sm:p-8"
+      className="relative rounded-lg border border-line bg-white p-5 shadow-sm sm:p-8"
     >
-      {demo ? (
-        <div className="mb-6 rounded-md border border-gold/40 bg-ivory px-4 py-3 text-sm leading-6 text-charcoal">
-          This concept form does not submit information. No estimate request is
-          sent. Call{" "}
+      {!live ? (
+        <div className="mb-6 rounded-md border border-gold/40 bg-ivory px-4 py-3 text-base leading-7 text-charcoal">
+          Online requests are paused. Call{" "}
           <a className="font-semibold text-forest underline" href={businessSettings.phoneHref}>
             {businessSettings.phoneDisplay}
           </a>{" "}
@@ -144,6 +163,18 @@ export function QuoteForm() {
           .
         </div>
       ) : null}
+
+      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full name" htmlFor="fullName" error={errors.fullName}>
@@ -319,13 +350,13 @@ export function QuoteForm() {
       </div>
 
       <fieldset className="mt-6">
-        <legend className="text-sm font-semibold text-forest">Services needed</legend>
-        <p className="mt-1 text-xs text-muted">Select every service that may apply.</p>
+        <legend className="text-base font-semibold text-forest">Services needed</legend>
+        <p className="mt-1 text-base leading-7 text-muted">Select every service that may apply.</p>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
           {quoteServiceOptions.map((option) => (
             <label
               key={option.id}
-              className="flex min-h-11 items-center gap-3 rounded-md border border-line px-3 py-2 text-sm text-charcoal"
+              className="flex min-h-11 items-center gap-3 rounded-md border border-line px-3 py-2 text-base text-charcoal"
             >
               <input
                 type="checkbox"
@@ -340,7 +371,7 @@ export function QuoteForm() {
           ))}
         </div>
         {errors.services ? (
-          <p className="mt-2 text-sm text-red-800" role="alert">
+          <p className="mt-2 text-base leading-7 text-red-800" role="alert">
             {errors.services}
           </p>
         ) : null}
@@ -360,16 +391,15 @@ export function QuoteForm() {
       </div>
 
       <div className="mt-6">
-        <p className="text-sm font-semibold text-forest">Optional photographs</p>
-        <p className="mt-2 rounded-md border border-dashed border-line bg-ivory px-4 py-3 text-sm leading-6 text-muted">
-          Photo upload is not enabled in this concept. Secure storage has not been
-          configured, so files are not collected here. Mention photographs in the
+        <p className="text-base font-semibold text-forest">Optional photographs</p>
+        <p className="mt-2 rounded-md border border-dashed border-line bg-ivory px-4 py-3 text-base leading-7 text-muted">
+          Photo upload is not available on this form. Mention photographs in the
           details above, or email them after we speak.
         </p>
       </div>
 
       <div className="mt-6">
-        <label className="flex items-start gap-3 text-sm leading-6 text-charcoal">
+        <label className="flex items-start gap-3 text-base leading-7 text-charcoal">
           <input
             type="checkbox"
             name="consent"
@@ -385,15 +415,19 @@ export function QuoteForm() {
           </span>
         </label>
         {errors.consent ? (
-          <p className="mt-2 text-sm text-red-800" role="alert">
+          <p className="mt-2 text-base leading-7 text-red-800" role="alert">
             {errors.consent}
           </p>
         ) : null}
       </div>
 
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <button type="submit" className={buttonClassName("gold", "lg")}>
-          Review request
+        <button
+          type="submit"
+          className={`${buttonClassName("gold", "lg")} disabled:cursor-not-allowed disabled:opacity-60`}
+          disabled={pending || !live}
+        >
+          {pending ? "Sending request…" : "Send request"}
         </button>
         <a href={businessSettings.phoneHref} className={buttonClassName("forest", "lg")}>
           <PhoneIcon />
@@ -401,32 +435,21 @@ export function QuoteForm() {
         </a>
       </div>
 
-      {attempted ? (
+      {attempted && Object.keys(valid).length > 0 ? (
         <div
-          className="mt-6 rounded-md border border-forest/20 bg-ivory px-4 py-4 text-sm leading-6 text-charcoal"
+          className="mt-6 rounded-md border border-forest/20 bg-ivory px-4 py-4 text-base leading-7 text-charcoal"
           role="status"
         >
-          {Object.keys(valid).length > 0 ? (
-            <p>Please complete the highlighted fields. Nothing has been sent.</p>
-          ) : demo ? (
-            <p>
-              The form is complete, but this concept does not submit information and
-              no request has been delivered. Call{" "}
-              <a className="font-semibold text-forest underline" href={businessSettings.phoneHref}>
-                {businessSettings.phoneDisplay}
-              </a>{" "}
-              or email{" "}
-              <a
-                className="font-semibold text-forest underline"
-                href={`mailto:${businessSettings.primaryEmail}`}
-              >
-                {businessSettings.primaryEmail}
-              </a>
-              .
-            </p>
-          ) : (
-            <p>Ready for live delivery once form handling is connected.</p>
-          )}
+          <p>Please complete the highlighted fields. Nothing has been sent.</p>
+        </div>
+      ) : null}
+
+      {status === "error" ? (
+        <div
+          className="mt-6 rounded-md border border-red-200 bg-ivory px-4 py-4 text-base leading-7 text-charcoal"
+          role="alert"
+        >
+          <p>{serverError}</p>
         </div>
       ) : null}
     </form>

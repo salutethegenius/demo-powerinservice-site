@@ -33,7 +33,7 @@ export function StockPhoto({
         className={clsx("h-full w-full object-cover", imgClassName)}
       />
       {caption && isStock ? (
-        <figcaption className="bg-forest-dark/95 px-3 py-2 text-[0.7rem] leading-5 text-ivory/70">
+        <figcaption className="bg-forest-dark/95 px-3 py-2 text-xs leading-5 text-ivory/70">
           {businessSettings.stockDisclosure}
         </figcaption>
       ) : null}

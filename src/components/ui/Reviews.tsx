@@ -21,7 +21,7 @@ export function Reviews() {
         {featured?.excerpt ? (
           <blockquote className="mt-10 max-w-3xl border-l-4 border-gold bg-white px-6 py-8">
             <p className="text-xl leading-8 text-charcoal">“{featured.excerpt}”</p>
-            <footer className="mt-4 text-sm text-muted">
+            <footer className="mt-4 text-base text-muted">
               {featured.attribution}
               {featured.dateLabel ? ` · ${featured.dateLabel}` : ""}
             </footer>
@@ -35,9 +35,8 @@ export function Reviews() {
         >
           View Reviews on Angi
         </a>
-        <p className="mt-3 max-w-xl text-xs leading-5 text-muted">
-          The Angi link is configurable and should be confirmed before public
-          launch. The current listing may still use a former business name.
+        <p className="mt-3 max-w-xl text-base leading-7 text-muted">
+          This Angi listing may still appear under a former business name.
         </p>
       </Container>
     </section>
